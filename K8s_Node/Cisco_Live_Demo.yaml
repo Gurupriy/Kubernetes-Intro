@@ -1,0 +1,44 @@
+---
+# https://kubernetes.io/docs/tasks/administer-cluster/namespaces/
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: clmel
+---
+# https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cisco-live-demo-deployment
+  namespace: clmel
+  labels:
+    app: cisco-live-demo
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: cisco-live-demo
+  template:
+    metadata:
+      labels:
+        app: cisco-live-demo
+    spec:
+      containers:
+      - name: cisco-live-demo-k8s
+        image: mipetrin/hello:latest
+        ports:
+        - containerPort: 5000
+---
+# https://kubernetes.io/docs/concepts/services-networking/service/
+apiVersion: v1
+kind: Service
+metadata:
+  name: cisco-live-demo-deployment-service
+  namespace: clmel
+spec:
+  type: NodePort
+  selector:
+    app: cisco-live-demo
+  ports:
+  - protocol: TCP
+    port: 5000
