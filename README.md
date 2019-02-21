@@ -36,6 +36,11 @@ Please let me know if you find any issues or have any questions.
 4 directories, 12 files
 ```
 
+* Docker_Localhost = Script to run local instance of the Docker Container Image
+* Hello_Web_App = Simple Flask Web Application
+* K8s_Node = Files to copy over to your Kubernetes cluster to execute
+* Tests = Python scripts to test the demo and environment
+
 
 ## Customizing Web App (optional)
 
@@ -78,7 +83,7 @@ badfbcebf7f8: Waiting
 
 ## Running the Web App (locally) in Docker
 
-You can either run my container that is available on DockerHub (mipetrin/hello), or using the name tag that you provided in the above "docker build" command. Then execute "docker run" to have the instance created. Alternatively, make use of "./local_docker_demo.sh" on your local machine, ensuring it has execute permissions (ie. "chmod +x local_docker_demo.sh")
+You can either run my container that is available on DockerHub (https://hub.docker.com/r/mipetrin/hello), or using the name tag that you provided in the above "docker build" command. Then execute "docker run" to have the instance created. Alternatively, make use of "./local_docker_demo.sh" on your local machine, ensuring it has execute permissions (ie. "chmod +x local_docker_demo.sh")
 
 ```
 MIPETRIN-M-R4JL:Docker_Localhost mipetrin$ docker run -p5000:5000 mipetrin/hello
@@ -362,11 +367,15 @@ You can point your Web Browser to
 
 #### Docker Example
 
+```
 http://localhost:5000/Melbourne
+```
 
 #### Kubernetes Example
 
+```
 http://<master node IP>:<svc port>/Melbourne
+```
 
 NOTE: Obtain your svc node port from the output of "kubectl get svc -n clmel", which is also run as part of "1_demo_setup.sh"
 
@@ -399,7 +408,7 @@ MIPETRIN-M-R4JL:Tests mipetrin$
 
 As before, using the "test_container_demo.py" python script, however specifying slightly different command line arguments:
 * "-d k8s" to specify your Kubernetes cluster. NOTE that you need to update the Master Node IP address within the "test_container_demo.py" file
-* "-p 32170" which should match the service node port - as per output of "kubectl get svc -n clmel"
+* "-p 32269" which should match the service node port - as per output of "kubectl get svc -n clmel"
 * "-c 500" to define how many test connections to make
 
 ```
