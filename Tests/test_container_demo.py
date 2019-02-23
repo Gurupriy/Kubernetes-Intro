@@ -93,7 +93,7 @@ def print_table(CONTAINER_DICT):
         instance_num += 1
 
     print ("\n")
-    print tabulate(data, headers=["#", "Container ID", "Hit Count"], tablefmt="simple")
+    print tabulate(data, headers=["#", "Pod/Container ID", "Hit Count"], tablefmt="simple")
 
 def main():
     '''
@@ -117,12 +117,12 @@ def main():
     if args.shutdown:
         # Perform shutdown sequence
         shutdown_website(MY_HOST, args.port, args.shutdown)
-        print ("\nShutting down containers...")
+        print ("\nShutting down pod/containers...")
         print_table(SHUTDOWN_CONTAINERS)
     else:
         # Test HTTP Web Front End Service
         test_website(MY_HOST, args.port, args.count)
-        print ("\nTesting connection to containers...")
+        print ("\nTesting connection to pod/containers...")
         print_table(TOTAL_CONTAINERS)
 
     print ("\n")
