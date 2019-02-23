@@ -22,6 +22,9 @@ Please let me know if you find any issues or have any questions.
 │   ├── Dockerfile
 │   ├── hello.py
 │   └── requirements.txt
+├── Images
+│   ├── Browser_K8s.png
+│   └── Browser_Localhost.png
 ├── K8s_Node
 │   ├── 0_demo_check_environment.sh
 │   ├── 1_demo_setup.sh
@@ -29,15 +32,17 @@ Please let me know if you find any issues or have any questions.
 │   ├── 3_demo_scale_down.sh
 │   ├── 4_demo_destroy.sh
 │   └── Cisco_Live_Demo.yaml
+├── LICENSE
 ├── README.md
 └── Tests
     └── test_container_demo.py
 
-4 directories, 12 files
+5 directories, 15 files
 ```
 
 * Docker_Localhost = Script to run local instance of the Docker Container Image
 * Hello_Web_App = Simple Flask Web Application
+* Images = Screenshots for this README
 * K8s_Node = Files to copy over to your Kubernetes cluster to execute
 * Tests = Python scripts to test the demo and environment
 
@@ -371,14 +376,17 @@ You can point your Web Browser to
 http://localhost:5000/Melbourne
 ```
 
+![Image of Localhost Example](https://raw.githubusercontent.com/mipetrin/Kubernetes-Intro/master/Images/Browser_Localhost.png)
+
+
 #### Kubernetes Example
 
 ```
 http://<master node IP>:<svc port>/Melbourne
 ```
-
 NOTE: Obtain your svc node port from the output of "kubectl get svc -n clmel", which is also run as part of "1_demo_setup.sh"
 
+![Image of Kubernetes Example](https://raw.githubusercontent.com/mipetrin/Kubernetes-Intro/master/Images/Browser_K8s.png)
 
 ### Python Script
 
