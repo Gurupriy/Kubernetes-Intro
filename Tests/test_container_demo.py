@@ -117,6 +117,7 @@ def main():
     if args.shutdown:
         # Perform shutdown sequence
         shutdown_website(MY_HOST, args.port, args.shutdown)
+        print ("\nShutting down containers...")
         print_table(SHUTDOWN_CONTAINERS)
     else:
         # Test HTTP Web Front End Service
