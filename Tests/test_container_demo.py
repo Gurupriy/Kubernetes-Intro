@@ -122,6 +122,7 @@ def main():
     else:
         # Test HTTP Web Front End Service
         test_website(MY_HOST, args.port, args.count)
+        print ("\nTesting connection to containers...")
         print_table(TOTAL_CONTAINERS)
 
     print ("\n")
