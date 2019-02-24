@@ -35,9 +35,11 @@ Please let me know if you find any issues or have any questions.
 ├── LICENSE
 ├── README.md
 └── Tests
+    ├── 1_test_docker_container_demo.sh
+    ├── 2_test_k8s_container_demo.sh
     └── test_container_demo.py
 
-5 directories, 15 files
+5 directories, 17 files
 ```
 
 * Docker_Localhost = Script to run local instance of the Docker Container Image
