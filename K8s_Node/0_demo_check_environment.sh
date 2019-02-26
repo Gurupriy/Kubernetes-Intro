@@ -16,3 +16,9 @@ kubectl get pods -n clmel
 
 echo ""
 echo ""
+echo "### Executing: kubectl get nodes"
+echo ""
+kubectl get nodes
+
+echo ""
+echo ""
