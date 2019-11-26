@@ -11,7 +11,7 @@ import requests
 import argparse
 from tabulate import tabulate
 
-MASTER_K8_NODE = "10.66.80.36" # IP Address of the Master K8s Node. Change this to your environment specific IP address
+MASTER_K8_NODE = "10.66.110.234" # IP Address of the Master K8s Node. Change this to your environment specific IP address
 TOTAL_CONTAINERS = {}
 SHUTDOWN_CONTAINERS = {}
 
