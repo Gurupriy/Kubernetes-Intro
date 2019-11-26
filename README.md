@@ -1,6 +1,6 @@
 # Introduction to Kubernetes [BRKDCT-1710]
 
-## Cisco Live Melbourne 2019 Session
+## Cisco Live Melbourne 2019, 2020 Session
 
 **By Michael Petrinovic (mipetrin@cisco.com)**
 
@@ -31,7 +31,8 @@ Please let me know if you find any issues or have any questions.
 │   ├── 2_demo_scale_up.sh
 │   ├── 3_demo_scale_down.sh
 │   ├── 4_demo_destroy.sh
-│   └── Cisco_Live_Demo.yaml
+│   ├── Demo_App_Template.yaml
+│   └── demo_variables.sh
 ├── LICENSE
 ├── README.md
 └── Tests
@@ -39,7 +40,7 @@ Please let me know if you find any issues or have any questions.
     ├── 2_test_k8s_container_demo.sh
     └── test_container_demo.py
 
-5 directories, 17 files
+5 directories, 18 files
 ```
 
 * Docker_Localhost = Script to run local instance of the Docker Container Image
@@ -126,7 +127,8 @@ Files supplied:
 * 2_demo_scale_up.sh  # Scale up the container instances to 20
 * 3_demo_scale_down.sh  # Scale down the container instances to 1
 * 4_demo_destroy.sh  # Remove the namespace, K8s virtual cluster and destroy all running instances of your container image
-* Cisco_Live_Demo.yaml  # Specific demo configuration that setups up the; Namespace, Pod Deployment, NodePort Service
+* Demo_App_Template.yaml  # Specific demo configuration template that setups up the following based on environment variables; Namespace, Pod Deployment, NodePort Service
+* demo_variables.sh  # File where you can set various configuration variables that will be used through the various other files in this Directory
 
 ### Execution
 
@@ -163,7 +165,7 @@ This will utilize the Cisco_Live_Demo.yaml configuration file
 ```
 root@k8s-master:/home/cisco/K8s# ./1_demo_setup.sh
 
-### Setting up Cisco Live Demo App on K8s Cluster per Cisco_Live_Demo.yaml file
+### Setting up Demo App on K8s Cluster per Demo_App_Template.yaml file
 
 
 ### Executing: kubectl apply -f Cisco_Live_Demo.yaml
