@@ -4,7 +4,7 @@
 source demo_variables.sh
 
 echo ""
-echo "### Setting up Cisco Live Demo App on K8s Cluster per Cisco_Live_Demo.yaml file"
+echo "### Setting up Demo App on K8s Cluster per file:" $my_demo_app_yaml
 echo ""
 echo ""
 echo "### Executing: kubectl apply -f" $my_demo_app_yaml
