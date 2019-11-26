@@ -1,12 +1,17 @@
 #!/bin/bash
 
+# Import the demo variables
+source demo_variables.sh
+
 echo ""
 echo "### Setting up Cisco Live Demo App on K8s Cluster per Cisco_Live_Demo.yaml file"
 echo ""
 echo ""
-echo "### Executing: kubectl apply -f Cisco_Live_Demo.yaml"
+echo "### Executing: kubectl apply -f" $my_demo_app_yaml
 echo ""
-kubectl apply -f Cisco_Live_Demo.yaml
+# Environment Variable Substitution to make use of the variables from our demo_variables.sh file before applying
+envsubst < $my_demo_app_yaml | kubectl apply -f -
+#kubectl apply -f $my_demo_app_yaml
 
 echo ""
 echo ""
@@ -16,21 +21,21 @@ kubectl get namespace
 
 echo ""
 echo ""
-echo "### Executing: kubectl get deployments -n clmel"
+echo "### Executing: kubectl get deployments -n" $my_namespace
 echo ""
-kubectl get deployments -n clmel
+kubectl get deployments -n $my_namespace
 
 echo ""
 echo ""
-echo "### Executing: kubectl get pods -n clmel"
+echo "### Executing: kubectl get pods -n" $my_namespace
 echo ""
-kubectl get pods -n clmel
+kubectl get pods -n $my_namespace
 
 echo ""
 echo ""
-echo "### Executing: kubectl get svc -n clmel"
+echo "### Executing: kubectl get svc -n" $my_namespace
 echo ""
-kubectl get svc -n clmel
+kubectl get svc -n $my_namespace
 
 echo ""
 echo ""
