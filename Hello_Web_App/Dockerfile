@@ -2,7 +2,7 @@
 #
 # Michael Petrinovic 2019
 # version 1.0
-FROM python
+FROM python:3.6-alpine
 LABEL maintainer_name="Michael Petrinovic"
 LABEL maintainer_email="mipetrin@cisco.com"
 
